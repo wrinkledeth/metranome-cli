@@ -1,4 +1,6 @@
-# Simple Metronome
+
+# metranome-cli
+
 A Python script that offers a simple metronome for music practice. It makes use of [sox](https://sox.sourceforge.net) and [mpv](https://mpv.io/).
 
 ## Usage
@@ -22,13 +24,14 @@ The note of the weak beats, in Hertz. The default is 2000.
 
 *Example*
 
-```python simple_metronome.py --bpm 120 --beats 6```
+```bash
+# 120bpm with 6 beats per measure
+python simple_metronome.py --bpm 120 --beats 6
 
-## Sxmo
-The metronome comes with a shell script that facilitates its execution on a Linux phone that runs [Sxmo](https://sxmo.org/). Copy: 
+# Sample Alias to set BPM and hide video.
+alias m="python3 ./metranome/simple_metranome.py --no-video --strong 1200 --weak 1200 --bpm"
 
-* `simple_metronome.py` to `~/.local/share/scripts/`
-* `simple-metronome.sh` to `~/.config/sxmo/userscripts/`
+# Usage
+m 80
+```
 
-
-# metranome-cli

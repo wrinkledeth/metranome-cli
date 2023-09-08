@@ -9,6 +9,7 @@ import shutil
 from pathlib import Path
 import logging
 import sys
+import signal
 
 BEAT_TIME = 0.005
 TMP_FILE_DIR = "/tmp"
@@ -17,6 +18,10 @@ BEAT_TEXT_POSITION = 75
 MIN_BPM = 20
 MAX_BPM = 220
 LOG_LEVEL = "WARNING"
+
+
+def exit_gracefully(signal, frame):
+    sys.exit(0)
 
 
 def get_arg_parser() -> argparse.ArgumentParser:
@@ -35,6 +40,9 @@ def get_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--weak", help="set the note of the weak beat", type=int, default="2000"
     )
+    parser.add_argument(
+        "--no-video", help="play audio only, no video", action="store_true"
+    )
 
     return parser
 
@@ -47,6 +55,9 @@ def validate_args(arguments: argparse.Namespace):
 
 
 def main():
+    # Handle Ctrl+C
+    signal.signal(signal.SIGINT, exit_gracefully)
+
     """Run the metronome"""
     parser = get_arg_parser()
     args = parser.parse_args()
@@ -68,8 +79,9 @@ def main():
 
     create_subtitles(beats_list)
 
+    video_flag = "--no-video" if args.no_video else "--force-window"
     cmd = (
-        f"mpv {beats_str} --loop-playlist=inf --force-window --no-osc"
+        f"mpv {beats_str} --loop-playlist=inf {video_flag} --no-osc"
         f" --sub-pos={BEAT_TEXT_POSITION} --sub-scale={BEAT_TEXT_SIZE} --really-quiet"
     )
 
