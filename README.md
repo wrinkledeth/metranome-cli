@@ -23,3 +23,6 @@ alias m="python3 ./metranome/simple_metranome.py --no-video --strong 1200 --weak
 m 80 # trigger alias
 ```
 
+## Credits
+
+Forked from [dimkard](https://codeberg.org/dimkard/simple-metronome/src/branch/main/README.md)
