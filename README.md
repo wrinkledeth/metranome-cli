@@ -9,7 +9,7 @@ A Python script that offers a simple metronome for music practice. It makes use 
 --bpm # set the beats per minute, default is 80
 --beats # number of beats per bar, default is 4
 --strong # Note of the strong beat in hertz, default is 4000
---weak # note of teh weak beats in hertz, detault is 2000
+--weak # note of the weak beats in hertz, detault is 2000
 ```
 
 ## Examples 
