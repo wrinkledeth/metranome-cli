@@ -10,9 +10,10 @@ Possible options:
 
 The beats per minute, e.g., 120. The default is 80.
 * `--beats`
-
+  
 The number of beats in a bar, e.g., 6. The default is 4.
 * `--strong`
+
 The note of the strong beat, in Hertz. The default is 4000.
 
 * `--weak`
