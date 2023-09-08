@@ -3,21 +3,14 @@
 
 A Python script that offers a simple metronome for music practice. It makes use of [sox](https://sox.sourceforge.net) and [mpv](https://mpv.io/).
 
-## Usage
+## CLI Arguments
 
-Possible options:
-* `--bpm`
-
-The beats per minute, e.g., 120. The default is 80.
-* `--beats`
-  
-The number of beats in a bar, e.g., 6. The default is 4.
-* `--strong`
-
-The note of the strong beat, in Hertz. The default is 4000.
-
-* `--weak`
-The note of the weak beats, in Hertz. The default is 2000.
+```bash
+--bpm # set the beats per minute, default is 80
+--beats # number of beats per bar, default is 4
+--strong # Note of the strong beat in hertz, default is 4000
+--weak # note of teh weak beats in hertz, detault is 2000
+```
 
 ## Examples 
 
